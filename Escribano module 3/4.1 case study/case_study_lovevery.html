@@ -9,11 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f8fafc;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --sidebar-bg: #0f172a; 
-            --accent: #1d4ed8;
+            --bg-color: #f8f9fa;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --sidebar-bg: #002f34; /* Kleinanzeigen dark cyan brand */
+            --accent: #86b817; /* Kleinanzeigen recognizable primary green */
             --border: #e2e8f0;
         }
 
@@ -94,23 +94,23 @@
             background: #ffffff; 
             border: 1px solid var(--border); 
             padding: 2rem; 
-            border-radius: 6px; 
+            border-radius: 4px; 
             margin-bottom: 3.5rem; 
             color: #334155; 
             font-size: 1.05rem; 
             box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
-            border-left: 4px solid #1e3a8a; 
+            border-left: 4px solid var(--sidebar-bg); 
         }
-        .context-box h3 { margin-top: 0; color: #1e3a8a; font-size: 1.4rem; margin-bottom: 1rem; }
+        .context-box h3 { margin-top: 0; color: var(--sidebar-bg); font-size: 1.4rem; margin-bottom: 1rem; }
 
         .executive-box { 
-            background: #eff6ff; 
-            border-left: 4px solid #1d4ed8; 
+            background: #f4fad4; /* light lime hint */
+            border-left: 4px solid var(--accent); 
             padding: 1.5rem; 
             border-radius: 0 4px 4px 0; 
             margin-bottom: 2rem; 
         }
-        .executive-box p { margin: 0 0 0.5rem 0; color: #1e3a8a; }
+        .executive-box p { margin: 0 0 0.5rem 0; color: var(--sidebar-bg); }
 
         .data-grid { 
             display: grid; 
@@ -239,6 +239,7 @@
             <li><a href="#task3">Task 3: Minimize Churn</a></li>
             <li><a href="#task4">Task 4: Additional Data</a></li>
             <li><a href="#task5">Task 5: Advanced Analytics</a></li>
+            <li><a href="#task6">Task 6: FAQs</a></li>
         </ul>
     </nav>
 
@@ -507,6 +508,27 @@
                         <strong>Operativa Diaria:</strong> Lejos de un triste "bot de soporte", implementamos una Arquitectura RAG. Semanalmente, el LLM ingerirá los juguetes de la caja que el padre tiene exactamente en su casa esa semana basándose en <code>Kit_ID</code>, y "generará" proactivamente ideas exclusivas de juego enviándolas como <em>Push Notifications</em> al móvil. Un incremento colosal de Active Users disuade dramáticamente el Churn por alto valor añadido.
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- TAREA 6: FAQs -->
+        <section class="section-card" id="task6">
+            <h2>Task 6: Frequently Asked Questions (FAQs)</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-muted); font-size: 1rem;">Respuestas a las cuestiones estratégicas más comunes planteadas por la directiva (Board of Directors) sobre la viabilidad táctica de estas iniciativas:</p>
+            
+            <div style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem;">
+                <h3 style="font-size: 1.05rem; color: var(--sidebar-bg); margin-bottom: 0.5rem; margin-top: 0;">¿Cómo financiamos la infraestructura de Machine Learning de la Tarea 5?</h3>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0; line-height: 1.6;">El desarrollo de scripts predictivos (PoC) se implementa de manera <em>serverless</em> bajo demanda usando arquitecturas cloud (AWS Lambda/GCP). Los costes de GPU son casi marginales (<50€/mes). El ROI provisto por mitigar tan solo un 2% del Churn (fuga) cubre el coste de ingeniería del año entero.</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem;">
+                <h3 style="font-size: 1.05rem; color: var(--sidebar-bg); margin-bottom: 0.5rem; margin-top: 0;">¿Existe riesgo legal al forzar a los padres a usar la App (Tarea 1)?</h3>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0; line-height: 1.6;">Absolutamente ninguno. La suscripción principal de Lovevery se transacciona corporativamente como un "Programa Pedagógico Digital + Físico". De hecho, forzar la digitalización del manual mejora drásticamente el *Compliance* RGPD, ya que un *Log* digitalizado permite consentimientos más fiables que instrucciones anónimas de papel impreso.</p>
+            </div>
+
+            <div style="margin-bottom: 0;">
+                <h3 style="font-size: 1.05rem; color: var(--sidebar-bg); margin-bottom: 0.5rem; margin-top: 0;">¿Por qué no bajar simplemente el precio del kit físico en lugar de ofrecer el botón "Skip a Box"?</h3>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0; line-height: 1.6;">Atacar la partida de *Pricing* a nivel general destruye directamente la "Premiumness" de la marca Lovevery y canibaliza la rentabilidad en cohortes seguras y pudientes que ya iban a pagar de todos modos. El botón "Skip a Box" inyecta una flexibilidad quirúrgica in-app sin depreciar el valor percibido del juguete físico, respetando y reteniendo únicamente al usuario que sufre estrés financiero en un mes muy concreto.</p>
             </div>
         </section>
 

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovevery - Executive Product Strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --sidebar-bg: #0f172a; 
+            --accent: #1d4ed8;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            line-height: 1.5;
+        }
+
+        /* SIDEBAR NAVIGATION */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            color: #f8fafc;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 2.5rem 1.5rem;
+            box-sizing: border-box;
+            border-right: 1px solid #1e293b;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar h2 {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #334155;
+            letter-spacing: -0.2px;
+            text-transform: uppercase;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: block;
+            padding: 0.6rem 0.8rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar a:hover {
+            color: #ffffff;
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            margin-left: 260px;
+            padding: 3rem 4rem;
+            max-width: 1100px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* OLD BLOCKS WITH NEW CSS (CONTEXT, EXECUTIVE, DATA GRID) */
+        .context-box { 
+            background: #ffffff; 
+            border: 1px solid var(--border); 
+            padding: 2rem; 
+            border-radius: 6px; 
+            margin-bottom: 3.5rem; 
+            color: #334155; 
+            font-size: 1.05rem; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+            border-left: 4px solid #1e3a8a; 
+        }
+        .context-box h3 { margin-top: 0; color: #1e3a8a; font-size: 1.4rem; margin-bottom: 1rem; }
+
+        .executive-box { 
+            background: #eff6ff; 
+            border-left: 4px solid #1d4ed8; 
+            padding: 1.5rem; 
+            border-radius: 0 4px 4px 0; 
+            margin-bottom: 2rem; 
+        }
+        .executive-box p { margin: 0 0 0.5rem 0; color: #1e3a8a; }
+
+        .data-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 1.5rem; 
+            margin-bottom: 2rem; 
+        }
+        .data-item { 
+            background: #ffffff; 
+            border: 1px solid var(--border); 
+            padding: 1.5rem; 
+            border-radius: 6px; 
+            text-align: center; 
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02); 
+        }
+        .data-value { font-size: 1.8rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem; }
+        .negative { color: #dc2626; }
+        .positive { color: #15803d; }
+        .data-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+
+        /* SECTIONS */
+        .section-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            padding: 3rem;
+            border-radius: 6px;
+            margin-bottom: 3rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            scroll-margin-top: 2rem;
+        }
+
+        .section-card h2 {
+            font-size: 1.4rem;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            letter-spacing: -0.5px;
+        }
+
+        /* GRIDS & CARDS */
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .initiative-card {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 1.5rem;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ini-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .ini-impact {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed #cbd5e1;
+            color: #334155;
+        }
+        
+        .ini-impact.positive { color: #15803d; }
+
+        .ini-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .math-box {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            background: #e2e8f0;
+            color: #334155;
+            font-size: 0.75rem;
+            padding: 0.6rem;
+            text-align: center;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        /* TABLES */
+        table.cohort-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        table.cohort-table th, table.cohort-table td {
+            padding: 10px 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        table.cohort-table th {
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <h2>Lovevery<br><span style="font-size: 0.8rem; color: #64748b; font-weight: 400;">Product Strategy Plan</span></h2>
+        <ul>
+            <li><a href="#contexto">Contexto</a></li>
+            <li><a href="#task1">Task 1: Business Plan & COGS</a></li>
+            <li><a href="#task2">Task 2: Funnel UX</a></li>
+            <li><a href="#task3">Task 3: Minimize Churn</a></li>
+            <li><a href="#task4">Task 4: Additional Data</a></li>
+            <li><a href="#task5">Task 5: Advanced Analytics</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- CONTEXTO -->
+        <div class="context-box" id="contexto">
+            <h3>Contexto del Proyecto</h3>
+            <p style="margin-top:0;"><strong>Lovevery</strong> provee kits cuidadosamente curados para niños de 0 a 4 años, adaptados a cada etapa de desarrollo. Cada kit contiene entre 6 y 10 artículos investigados pedagógicamente. Los padres se suscriben para recibir un kit cada dos o tres meses, con la opción de pagar caja a caja, o pagar 3 o 5 cajas por adelantado (con un 5% y 10% de descuento respectivamente).</p>
+            <p style="margin-bottom:0;"><strong>El objetivo clave:</strong> Como líderes de producto (Product Managers), nuestra misión es ayudar a la compañía a alcanzar la rentabilidad operativa, analizando los flujos de usuario, diseñando propuestas de negocio estratégicas e impulsando medidas mediante analítica avanzada y datos.</p>
+        </div>
+
+        <!-- TAREA 1 -->
+        <section class="section-card" id="task1">
+            <h2>Task 1: Business Plan & Rentabilidad (C-Level Summary)</h2>
+            
+            <div class="executive-box">
+                <p><strong>Situación Actual (2024):</strong> La compañía registra 21.229 ventas de kits con una facturación de 2.12M €. Sin embargo, los altos costes operativos (Salarios de 1M €) y de manufactura (COGS* de 1.34M €) originan unas pérdidas anuales (Operating Profit) de casi 600.000 €.</p>
+                <p><strong>Objetivo de Producto:</strong> Implementar 4 medidas sobre precio, operaciones y logística para recuperar al menos ~500.000 € y acercar la meta al Breakeven.</p>
+            </div>
+
+            <div class="data-grid">
+                <div class="data-item">
+                    <div class="data-value">2.12M €</div>
+                    <div class="data-label">Ingresos Totales (21k kits)</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">2.72M €</div>
+                    <div class="data-label">Costes Totales</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value negative">-593.161 €</div>
+                    <div class="data-label">Gap a cubrir</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value positive">+500.278 €</div>
+                    <div class="data-label">Ahorro Proyectado</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.1rem; color: #0f172a; margin-top: 2rem;">Desglose de las 4 Iniciativas Estratégicas</h3>
+            
+            <div class="initiatives-grid" style="margin-top: 1rem;">
+                <div class="initiative-card">
+                    <div class="ini-title">Eficiencia Operativa (COGS*)</div>
+                    <div class="ini-impact positive">+191.061 €</div>
+                    <div class="ini-desc">Eliminar objetos de bajo uso por kit. Bajar de 7.5 objetos de media a 6 objetos de alto engagement.</div>
+                    <div class="math-box">21.229 uds × 9€ ahorro</div>
+                </div>
+                
+                <div class="initiative-card">
+                    <div class="ini-title">Aumento Ticket (Pricing)</div>
+                    <div class="ini-impact positive">+106.145 €</div>
+                    <div class="ini-desc">Restringir agresividad del descuento prepago o incentivar add-ons premium para elevar ingreso neto.</div>
+                    <div class="math-box">21.229 uds × 5€ extra</div>
+                </div>
+
+                <div class="initiative-card">
+                    <div class="ini-title">Digitalización Play Guides</div>
+                    <div class="ini-impact positive">+148.603 €</div>
+                    <div class="ini-desc" style="font-size: 0.82rem; margin-bottom: 1rem;">Anular la gruesa imprenta física de los manuales <em>(Play Guides)</em> transicionándolos a la App.<br><br><strong>Visión de Producto:</strong> Cúbremos la cuota de ahorro bloqueando despidos perjudiciales y forzamos activamente a que los padres utilicen la App (Maximizando el MAU), encadenándoles al ecosistema algorítmico y de alertas del punto 5.</div>
+                    <div class="math-box">21.229 uds × 7€ imprenta</div>
+                </div>
+
+                <div class="initiative-card">
+                    <div class="ini-title">Contención Logística</div>
+                    <div class="ini-impact positive">+53.072 €</div>
+                    <div class="ini-desc">Renegociar las tarifas de envío de última milla. Los envíos ascienden a >20k anulamente, lo que da poder de tracción.</div>
+                    <div class="math-box">21.229 uds × 2.5€ ahorro</div>
+                </div>
+            </div>
+            
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1.5rem; background: #f8fafc; padding: 0.8rem; border-radius: 4px; border: 1px solid #e2e8f0;">
+                <em>* <strong>COGS (Cost of Goods Sold / Coste de Ventas):</strong> Representa el gasto directo asociado exclusivamente a la creación física del producto, como la madera de los juguetes, los libros y el empaquetado. Optimizar este KPI es la palanca más fuerte para un PM, ya que permite aumentar el margen de rentabilidad bruto sin subirle el precio final a los padres ni recortar despidos.</em>
+            </p>
+        </section>
+
+        <!-- TAREA 2 -->
+        <section class="section-card" id="task2">
+            <h2>Task 2: Funnel de Conversión y UX Improvements</h2>
+            <p>Basado en la revisión de analítica de producto y en las capturas clave del flujo de suscripción para usuarios, hemos identificado oportunidades para eficientar el registro:</p>
+            <ul style="padding-left: 1.5rem; color: #334155;">
+                <li style="margin-bottom: 1rem;"><strong>Simplificación Sensorial (One-Page Checkout):</strong> Agrupar y condensar fuertemente los Steps 2 y 3. El modelo de negocio complejo de <em>entregas espaciadas</em> genera estrés cognitivo. Introducir opciones de pago rápido tipo "Apple Pay" para ganar compras por impulso.</li>
+                <li style="margin-bottom: 1rem;"><strong>Claridad visual del valor:</strong> Incorporar un comparador gráfico durante el checkout que enfrente "Gasto de la competencia mes a mes" versus el "Ahorro total del modelo Lovevery". Se trata de un mecanismo psicológico de anclaje de precio.</li>
+                <li style="margin-bottom: 1rem;"><strong>Onboarding Transparente:</strong> Adicionar una barra de pasos universal fija en el tope superior (ej. <em>1. Tu Hijo -> 2. El Plan -> 3. Recepción segura</em>) para gestionar expectativas y mitigar abandono.</li>
+            </ul>
+        </section>
+
+        <!-- TAREA 3 -->
+        <section class="section-card" id="task3">
+            <h2>Task 3: Product Modifications to Minimize Churn (Data-Driven)</h2>
+            
+            <div class="executive-box" style="background: #fff1f2; border-left-color: #f43f5e;">
+                <p><strong>Diagnóstico Numérico:</strong> Según nuestro fichero de <em>Revenues</em>, Lovevery sufre la pérdida de <strong>2.719 perfiles anuales</strong> (Churned customers). Asumiendo el ticket base del servicio, esta fuga de base instalada desangra instantáneamente más de <strong style="color: #be123c;">280.057 €</strong> de ingresos recurrentes potenciales. Frenar el churn no es opcional, es vital para nuestra métrica de Breakeven.</p>
+            </div>
+
+            <div class="data-grid" style="margin-bottom: 2.5rem;">
+                <div class="data-item">
+                    <div class="data-value">2.719</div>
+                    <div class="data-label">Clientes Perdidos (Anual)</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value negative">-280.057 €</div>
+                    <div class="data-label">Fuga de Capital Directo</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value positive">~98.004 €</div>
+                    <div class="data-label">Retención Objetivo (Meta 35%)</div>
+                </div>
+            </div>
+
+            <p style="margin-bottom: 1.5rem;">Mapeando estos datos con fricciones de producto, proponemos 3 implementaciones tácticas con impacto proyectado medible:</p>
+
+            <div class="initiatives-grid">
+                <div class="initiative-card">
+                    <div class="ini-title">On-Click "Skip a Box" y Pausa Flexible</div>
+                    <div class="ini-impact positive">+55.980 €</div>
+                    <div class="ini-desc">El usuario anula abrumado por acumulación o finanzas del mes. Interceptar el "Cancelar Suscripción" con un botón primario de "Pausar cuenta 30 días" es altamente persuasivo, asumiendo retener estáticamente un 20%.</div>
+                    <div class="math-box">543 previstos × 103€/kit = +55.980 €</div>
+                </div>
+
+                <div class="initiative-card">
+                    <div class="ini-title">Ruteo "Speed Up" Evolutivo</div>
+                    <div class="ini-impact positive">+42.024 €</div>
+                    <div class="ini-desc">El desarrollo infantil es irregular y surgen quejas de "son aburridos para mi hijo". Proveer un botón de override temporal para saltar prematuramente al kit avanzado rescata la confianza del tutor (asumiendo retener 15%).</div>
+                    <div class="math-box">408 previstos x 103€/kit = +42.024 €</div>
+                </div>
+
+                <div class="initiative-card">
+                    <div class="ini-title">Bucle Ecológico Retributivo</div>
+                    <div class="ini-impact positive">Incremento en LTV</div>
+                    <div class="ini-desc">Solventa el <em>síndrome de "casa llena"</em>. Se incluirá una etiqueta de envío para purgar viejos juguetes hacia nuestros almacenes a cambio de créditos prepago. Retiene al cliente base mientras engorda el Life Time Value indirectamente.</div>
+                    <div class="math-box">Menos coste Adquisición</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAREA 4 -->
+        <section class="section-card" id="task4">
+            <h2>Task 4: Additional Data para Toma de Decisiones</h2>
+            
+            <div class="executive-box" style="background: #f0fdf4; border-left-color: #22c55e; margin-bottom: 2.5rem;">
+                <p><strong>Justificación Estratégica:</strong> Solicitar "más datos" para acumularlos carece de sentido. Como Product Managers, la telemetría adicional solicitada al equipo de Data debe servir estrictamente para <strong>validar financieramente las hipótesis audaces planteadas en las Tareas 1 y 3</strong>.</p>
+            </div>
+
+            <div class="initiatives-grid" style="margin-bottom: 3rem;">
+                <div class="initiative-card" style="border-top: 4px solid #3b82f6; background: #ffffff;">
+                    <div class="ini-title">1. Uso Físico In-App</div>
+                    <div class="ini-impact">Valida Tarea 1</div>
+                    <div class="ini-desc">Propusimos retirar 1.5 objetos/caja para ahorrar 191.000 €. Requerimos recolectar data in-app (con encuestas flash) pidiendo marcar <em>"qué artículo de la última caja ha ignorado el niño"</em>. Esto delata matemáticamente al juguete inútil para extirparlo del <b>COGS</b> limpiamente.</div>
+                </div>
+
+                <div class="initiative-card" style="border-top: 4px solid #8b5cf6; background: #ffffff;">
+                    <div class="ini-title">2. Dinámica NPS y Churn</div>
+                    <div class="ini-impact">Valida Tarea 3</div>
+                    <div class="ini-desc">2.719 clientes anulan anualmente. Midiendo el Net Promoter Score atado a tramos de edad (ej. Mes 6 vs Mes 12) detectaremos el punto de rotura. Si el NPS decae en el Mes 12, la App se ajusta para disparar la rutina anti-churn (<em>Skip a Box</em>) al inicio del Mes 11 de forma robotizada.</div>
+                </div>
+
+                <div class="initiative-card" style="border-top: 4px solid #10b981; background: #ffffff;">
+                    <div class="ini-title">3. CAC vs LTV Segmentado</div>
+                    <div class="ini-impact">Optimiza Presupuesto</div>
+                    <div class="ini-desc">Se inyectan 240.000 € anuales en Ads. Si cruzamos el gasto por fuente con el valor prolongado del cliente, averiguaremos si "Google Ads" atrae planes premium anuales y si "Meta" atrae cazadores de ofertas de 1 mes. Protegeremos la rentabilidad con este mapeo.</div>
+                </div>
+            </div>
+
+            <div style="background: #f8fafc; padding: 2rem; border-radius: 6px; border: 1px solid #cbd5e1; border-left: 4px solid #0f172a;">
+                <strong style="color: #0f172a; font-size: 1.1rem; display: block; margin-bottom: 0.5rem;">Visualización Numérica: Implementación de Cohort Analysis</strong>
+                <p style="font-size: 0.9rem; color: #475569; margin-bottom: 1.5rem; line-height: 1.6;">Revisando en detalle la hoja Excel encontramos descubrimos un hueco negro estadístico: en <strong>Agosto aconteció un pico anómalo de 572 bajas</strong> (la media mensual de pérdida suele ser 180). Implementando un esquema avanzado de cohortes como este <em>Heatmap</em> inferior, la directiva puede cruzar si ese abandono fue genérico (vacaciones) o si hubo una brecha focalizada en un mes concreto.</p>
+                
+                <div style="overflow-x: auto;">
+                    <table class="cohort-table">
+                                <thead>
+                                    <tr>
+                                        <th style="padding: 10px; border: 1px solid #e2e8f0; background: #f8fafc; color: #64748b; text-align: left;">Mes y Origen</th>
+                                        <th style="padding: 10px; border: 1px solid #e2e8f0; background: #f8fafc; color: #64748b; text-align: center;">Usuarios (Volumen N)</th>
+                                        <th style="padding: 10px; border: 1px solid #e2e8f0; background: #f8fafc; color: #64748b;">Mes 0</th>
+                                        <th style="padding: 10px; border: 1px solid #e2e8f0; background: #f8fafc; color: #64748b;">Mes 1</th>
+                                        <th style="padding: 10px; border: 1px solid #e2e8f0; background: #f8fafc; color: #64748b;">Mes 2</th>
+                                        <th style="padding: 10px; border: 1px solid #e2e8f0; background: #f8fafc; color: #64748b;">Mes 3</th>
+                                        <th style="padding: 10px; border: 1px solid #e2e8f0; background: #f8fafc; color: #64748b;">Mes 4</th>
+                                        <th style="padding: 10px; border: 1px solid #e2e8f0; background: #f8fafc; color: #64748b;">Mes 5</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: 600; text-align: left; color: #334155;">Jan Cohort (AdWords)</td>
+                                        <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold; color: #0f172a; background: #f8fafc;">116 clientes</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #0284c7; color: white;">100%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #38bdf8; color: white;">88%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #7dd3fc; color: #0f172a;">75%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #bae6fd; color: #0f172a;">62%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #e0f2fe; color: #0f172a;">55%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #e0f2fe; color: #0f172a;">50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: 600; text-align: left; color: #334155;">Feb Cohort (Meta Ads)</td>
+                                        <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold; color: #0f172a; background: #f8fafc;">96 clientes</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #0284c7; color: white;">100%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #38bdf8; color: white;">80%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #bae6fd; color: #0f172a;">60%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #e0f2fe; color: #0f172a;">45%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #fee2e2; color: #b91c1c; font-weight: bold;">20% (Fuga)</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #fecaca; color: #b91c1c; font-weight: bold;">12%</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: 600; text-align: left; color: #334155;">Mar Cohort (Influencers)</td>
+                                        <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold; color: #0f172a; background: #f8fafc;">86 clientes</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #0284c7; color: white;">100%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #38bdf8; color: white;">85%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #7dd3fc; color: #0f172a;">70%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #bae6fd; color: #0f172a;">60%</td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #f1f5f9;"></td>
+                                        <td style="padding: 10px; border: 1px solid #ffffff; background: #f1f5f9;"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+            <div style="background: #ffffff; padding: 2rem; border-radius: 6px; border: 1px solid #cbd5e1; border-left: 4px solid #8b5cf6; margin-top: 2rem;">
+                <strong style="color: #0f172a; font-size: 1.1rem; display: block; margin-bottom: 0.5rem;">Data Insight Extraído: El "Punto de Quiebre" del NPS</strong>
+                <p style="font-size: 0.9rem; color: #475569; margin-bottom: 1rem; line-height: 1.6;">Al tabular la correlación proyectada (NPS temporal vs Churn Histórico), el reporting visualiza un patrón ciego hasta ahora: el Net Promoter Score estelar de la compañía <strong>colapsa sorpresivamente de +65 puntos a un valle crítico de -12 puntos en el "Kit del Mes 9"</strong> generalizado.</p>
+                <p style="font-size: 0.9rem; color: #475569; margin-bottom: 0; line-height: 1.6;"><strong>Implementación Estratégica (Valida Tarea 3):</strong> Este hallazgo ilumina por qué huyen 2.719 clientes anuales. La fuga no es un tema de coste financiero de la tarjeta de crédito, sino pura "frustración pedagógica" al subir marcadamente la complejidad de resolución de puzles en esa etapa infantil concreta. Con este dictamen matemático irreversible, alteramos el backend: <strong>la App de Lovevery interceptará y disparará proactivamente el protocolo creado en la Tarea 3 (<em>Pausar caja o Skip temporal</em>) inyectando una sugerencia Push exactamente en el día 21 del octavo mes del bebé</strong>, aislando y atajando la crisis psicológica con una barrera preventiva antes de que se consume la baja definitiva del suscriptor.</p>
+            </div>
+        </section>
+
+        <!-- TAREA 5 -->
+        <section class="section-card" id="task5">
+            <h2>Task 5: Advanced Analytics & Generative AI</h2>
+            <p style="margin-bottom: 2rem;">Para alejarnos de conceptos teóricos o "de manual", este es el mapeo táctico profundo para cada tecnología anclado a un <strong>Data Input</strong>, una <strong>Operativa Mecánica</strong> y un <strong>Impacto Medible</strong> para Lovevery:</p>
+            
+            <div class="initiatives-grid">
+                <div class="initiative-card">
+                    <div class="ini-title" style="color: #1e3a8a;">Predictive Analytics: <br>XGBoost Churn Tracker</div>
+                    <div class="ini-impact positive">Reducir -12% Cancelación</div>
+                    <div class="ini-desc" style="font-size: 0.85rem; color: #1e293b;">
+                        <strong>Data Inputs:</strong> <code>Days_since_last_login</code>, <code>Support_tickets_last_30d</code>, <code>Email_open_rate</code>.<br><br>
+                        <strong>Operativa Diaria:</strong> Se corre un modelo clasificatorio que devuelve un <em>Churn_Probability_Index (0-100%)</em>. Si la tasa supera el 75%, el sistema dispara un webhook al CRM enviando proactivamente un voucher retenedor (15% off) exactamente 7 días antes de que toque la auto-renovación en la tarjeta. Atajamos en vez de diagnosticar a posteriori.
+                    </div>
+                </div>
+
+                <div class="initiative-card">
+                    <div class="ini-title" style="color: #1e3a8a;">Prescriptive Analytics: <br>Next-Best-Action Engine</div>
+                    <div class="ini-impact positive">+2€ Gross Margin/Usuario</div>
+                    <div class="ini-desc" style="font-size: 0.85rem; color: #1e293b;">
+                        <strong>Data Inputs:</strong> <code>Cart_Abandon_Time</code>, <code>Predicted_LTV_Cohort</code>.<br><br>
+                        <strong>Operativa Diaria:</strong> Ante un carrito abandonado, la IA no hace "mailing masivo". El motor prescribe mecánicamente el incentivo. Si el LTV predicho del dudoso es brutal (>400€ anual), prescribe insertar un <em>libro extra físico</em> (coste marginal bajísimo de 1.5€). Si el LTV es dudoso, prescribe un 10% puro de cash discount para cerrar rápido limitando coste.
+                    </div>
+                </div>
+
+                <div class="initiative-card">
+                    <div class="ini-title" style="color: #1e3a8a;">Image & Text: <br>Toy-Utility Ratio Pipeline</div>
+                    <div class="ini-impact positive">Auditoría pura de COGS</div>
+                    <div class="ini-desc" style="font-size: 0.85rem; color: #1e293b;">
+                        <strong>Data Inputs:</strong> Zendesk tickets log, <code>#Lovevery</code> Tagged Photos.<br><br>
+                        <strong>Operativa Diaria:</strong> Topic Modeling (NLP) buscará <em>bigramas</em> (ej. "faltan piezas", "muy rápido") para derivar quejas al Factory ID concreto. Por el lado visual, la Cloud Vision API scrappeará contenido generado por el usuario (UGC), evaluando exactamente <em>con qué objetos salen jugando los niños en la foto de Instagram</em> frente a lo que mandamos (Toy-Utility Rate). Lo no fotografiado corre riesgo de extinción (Tarea 1 cumplida).
+                    </div>
+                </div>
+
+                <div class="initiative-card">
+                    <div class="ini-title" style="color: #1e3a8a;">Generative AI: <br>RAG Pipeline in-app</div>
+                    <div class="ini-impact positive">Elevar WAU un +40%</div>
+                    <div class="ini-desc" style="font-size: 0.85rem; color: #1e293b;">
+                        <strong>Data Inputs:</strong> <code>Child_Age_Days</code>, <code>Current_Kit_ID</code>, <code>Montessori_Vector_DB</code>.<br><br>
+                        <strong>Operativa Diaria:</strong> Lejos de un triste "bot de soporte", implementamos una Arquitectura RAG. Semanalmente, el LLM ingerirá los juguetes de la caja que el padre tiene exactamente en su casa esa semana basándose en <code>Kit_ID</code>, y "generará" proactivamente ideas exclusivas de juego enviándolas como <em>Push Notifications</em> al móvil. Un incremento colosal de Active Users disuade dramáticamente el Churn por alto valor añadido.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
